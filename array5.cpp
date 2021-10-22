@@ -12,6 +12,18 @@ void partition(int *a,int n){
     swap(a[i],a[0]);
 }
 
+void f(int* a,int n){
+    int l=0,r=n-1;
+    while(l<r){
+        if(a[l]>0 && a[r]<0) swap(a[l++],a[r--]);
+        else if(a[l]>0 && a[r]>0) r--;
+        else if(a[l]<0 && a[r]<0) l++;
+        else{
+            l++;r--;
+        }
+    }
+}
+
 int main()
 {
     int n;
