@@ -7,7 +7,7 @@ void reverse(vector<int> &v,auto i,auto j){
     auto s=i;
     auto e=j;
     while(s<e){
-        swap(s,e);
+        swap(*s,*e);
         s++;e--;
     }
 }
@@ -18,7 +18,7 @@ void nextPermutation(vector<int> &v,int n){
         it--;
     }
     auto it1=it-1;
-    auto it2=it,it3;
+    auto it2=it,it3=it;
     int min=2147483647,tmp;
     while(it2!=v.end()){
         tmp=abs(*it2-*it1);
@@ -28,7 +28,7 @@ void nextPermutation(vector<int> &v,int n){
         }
         it2++;
     }
-    swap(it3,it1);
+    swap(*it3,*it1);
     reverse(v,it,v.end()-1);
 }
 
